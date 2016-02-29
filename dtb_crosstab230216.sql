@@ -1,4 +1,5 @@
-﻿/*To quarry a given timeframe that is umique each day on a different table.*/
+﻿/*This quarry conects two tables. By quarying on the timeframe of each day when the systems was operational.It selects data according to this timeframe, and rearanges the structure of the observed data.
+To quarry a given timeframe that is unique each day on a different table.*/
 
 DROP TABLE IF EXISTS dato;
 DROP TABLE IF EXISTS time_int;
@@ -38,7 +39,8 @@ GROUP BY a.date_on ORDER BY a.date_on ASC;
 
 --SELECT * FROM time_int_week;
 
-/* Creating new grouping of data from original data */
+/* Creating new grouping of birds from original data */
+
 CREATE TEMP TABLE dated AS
 
 SELECT *, 
@@ -46,6 +48,7 @@ SELECT *,
 FROM "oyvind.hamre".dtbird;
 
 --SELECT* FROM dated;
+/* Selecting the birds based on bird category where the time frame of recording is the same. Counting number of observations and also number of birds (this for posible further use) */
 
 CREATE TEMP TABLE tempo AS
 
@@ -61,6 +64,7 @@ ORDER BY iyear, uke;
 
 --SELECT* FROM tempo;
 
+/* Using a pivotable to arange/strukture the data from "tempo"*/
 
 CREATE TEMP TABLE temp_42 AS
 
@@ -105,6 +109,7 @@ AS result (
 --SELECT * FROM temp_42;
 --SELECT * FROM temp_1;	
 
+/* Creating the table that joins the restructured data from the crosstabs and the timeframe when the system was opperaational*/
 
 CREATE TEMP TABLE joined AS
 

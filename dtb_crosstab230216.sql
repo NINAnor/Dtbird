@@ -1,5 +1,5 @@
-﻿/*This quarry conects two tables. By quarying on the timeframe of each day when the systems was operational.It selects data according to this timeframe, and rearanges the structure of the observed data.
-To quarry a given timeframe that is unique each day on a different table.*/
+﻿/*This query conects two tables. By querying on the timeframe of each day when the systems was operational.It selects data according to this timeframe, and rearanges the structure of the observed data.
+To query a given timeframe that is unique each day on a different table. */
 
 DROP TABLE IF EXISTS dato;
 DROP TABLE IF EXISTS time_int;
@@ -109,7 +109,7 @@ AS result (
 --SELECT * FROM temp_42;
 --SELECT * FROM temp_1;	
 
-/* Creating the table that joins the restructured data from the crosstabs and the timeframe when the system was opperaational*/
+/* Creating the table that joins the restructured data from the crosstabs and the timeframe when the system was opperational*/
 
 CREATE TEMP TABLE joined AS
 
